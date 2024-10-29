@@ -130,10 +130,8 @@ The API returns appropriate HTTP status codes:
 4. Push to the branch
 5. Create a Pull Request
 
-## License
 
-[Your License Type] - See LICENSE file for details
 
 ## Contact
 
-[Your Contact Information]
+[Gurudev]
