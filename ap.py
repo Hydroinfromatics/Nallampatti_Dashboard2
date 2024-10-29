@@ -1,9 +1,11 @@
 from flask import Flask, jsonify, render_template_string
+from flask_cors import CORS  # Import CORS
 from datetime import datetime
 from data_process import process_and_store_data, get_todays_data
 import os
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 # Configuration
 API_URL = os.environ.get('API_URL', 'default_api_url')
@@ -83,7 +85,7 @@ def get_sensor_data():
                 "data": []
             })
         
-        json_data = data.to_dict(orient='records')
+        json_data = data.to_json(orient='records', date_format='iso')  # Convert to JSON
         return jsonify({
             "status": "success",
             "count": len(json_data),
